@@ -15,11 +15,22 @@ elixir(function(mix) {
     mix.sass('app.scss')
     	.scripts([
     		'libs/sweetalert-dev.js',
-    		'libs/wow.js'
+    		'libs/wow.js',
+    		'libs/bootstrap.js',
+    		'libs/jquery.js',
+    		'libs/metisMenu.js',
+    		'libs/sb-admin-2.js',
+    		'libs/scripts.js'
     	], './public/js/libs.js')
 
     	.styles([
     		'libs/sweetalert.css',
-    		'libs/animate.css'
+    		'libs/animate.css',
+    		'libs/blog-post.css',
+    		'libs/bootstrap.css',
+    		'libs/font-awesome.css',
+    		'libs/metisMenu.css',
+    		'libs/sb-admin-2.css',
+    		'libs/styles.css'
     	], './public/css/libs.css');
 });
