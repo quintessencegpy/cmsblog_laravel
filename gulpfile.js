@@ -14,10 +14,10 @@ var elixir = require('laravel-elixir');
 elixir(function(mix) {
     mix.sass('app.scss')
     	.scripts([
+    		'libs/jquery.js',
     		'libs/sweetalert-dev.js',
     		'libs/wow.js',
     		'libs/bootstrap.js',
-    		'libs/jquery.js',
     		'libs/metisMenu.js',
     		'libs/sb-admin-2.js',
     		'libs/scripts.js'
