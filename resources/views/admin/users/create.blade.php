@@ -32,8 +32,7 @@
 			{!! Form::label('photo_id', 'File Name:') !!}
 			{!! Form::file('photo_id',null,['class'=>'form-control']) !!}
 		</div>
-		<div class="form-group">
-			{!! Form::submit('Create User', ['class'=>'btn btn-primary']) !!}
+		<div class="form-group"> {!! Form::submit('Create User', ['class'=>'btn btn-primary']) !!}
 		</div>
 	{!! Form::close() !!}
 @stop
