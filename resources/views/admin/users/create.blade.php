@@ -29,8 +29,8 @@
 			@if ($errors->has('password'))<p class = 'error-font'>{!!$errors->first('password')!!}</p>@endif
 		</div>
 		<div class="form-group">
-			{!! Form::label('file', 'File Name:') !!}
-			{!! Form::file('file',null,['class'=>'form-control']) !!}
+			{!! Form::label('photo_id', 'File Name:') !!}
+			{!! Form::file('photo_id',null,['class'=>'form-control']) !!}
 		</div>
 		<div class="form-group">
 			{!! Form::submit('Create User', ['class'=>'btn btn-primary']) !!}
