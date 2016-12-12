@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
 use App\Http\Requests;
+use App\Photo;
 use Illuminate\Http\Request;
 
-class AdminCategoriesController extends Controller
+class AdminMediasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class AdminCategoriesController extends Controller
     public function index()
     {
         //
-        $categories = Category::all();
-        return view('admin.categories.index',compact('categories'));
+        $photos=Photo::all();
+        return view('admin.media.index', compact('photos'));
     }
 
     /**
@@ -28,6 +28,7 @@ class AdminCategoriesController extends Controller
     public function create()
     {
         //
+        return view('admin.media.create');
     }
 
     /**
@@ -39,9 +40,11 @@ class AdminCategoriesController extends Controller
     public function store(Request $request)
     {
         //
-        Category::create($request->all());
+        $file = $request->file('file');
 
-        return redirect('/admin/categories');
+        $name=time().$file->getClientOriginalName();
+        $file->move('images',$name);
+        Photo::create(['file'=>$name]);
     }
 
     /**
@@ -64,8 +67,6 @@ class AdminCategoriesController extends Controller
     public function edit($id)
     {
         //
-        $category=Category::findOrFail($id);
-        return view('admin.categories.edit', compact('category'));
     }
 
     /**
@@ -78,9 +79,6 @@ class AdminCategoriesController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $category = Category::findOrFail($id);
-        $category->update($request->all());
-        return redirect('/admin/categories');
     }
 
     /**
@@ -92,8 +90,9 @@ class AdminCategoriesController extends Controller
     public function destroy($id)
     {
         //
-        Category::findOrFail($id)->delete();
-
-        return redirect('/admin/categories');
+        $photo = Photo::findOrFail($id);
+        unlink(public_path().$photo->file);
+        $photo->delete();
+        return redirect('admin/media');
     }
 }

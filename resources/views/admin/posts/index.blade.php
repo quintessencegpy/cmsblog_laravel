@@ -23,8 +23,8 @@
 		        <td>{{$post->id}}</td>
 		        <td>{{$post->user->name}}</td>
 		        <td>{{$post->category ? $post->category->name : 'Uncategorized'}}</td>
-		        <td><img heigth = "25" width = "50" src=" {{$post->photo ? $post->photo->file : '/images/postplaceholder.jpg'}} "></td>
-		        <td>{{$post->title}}</td>
+		        <td><img height = "25" width = "50" src=" {{$post->photo ? $post->photo->file : '/images/postplaceholder.jpg'}} "></td>
+		        <td><a href=" {{route('admin.posts.edit',$post->id)}} ">{{$post->title}}</a></td>
 		        <td>{{$post->body}}</td>
 		        <td>{{$post->created_at->diffForHumans()}}</td>
 		        <td>{{$post->updated_at->diffForHumans()}}</td>
